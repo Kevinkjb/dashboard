@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react'
+import './index.css';
+import Employee from './components/Employee';
+import { v4 as uuidv4 } from 'uuid';
 
-function App() {
+const  App = ()  => {
+  const showEmployee = true
+  const [role, setRole] = useState('')
+  const [employees, setEmployees] = useState(
+    [
+      {name: "Kevin", role: "Developer", img: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"},
+      {name: "Abby", role: "Developer", img: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"},
+      {name: "John", role: "Manager", img: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"}
+    ]
+  )
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      { showEmployee ? 
+        <>
+          <input className='border-solid border-2 border-gray-500' type="text" onChange={(e) => {
+            setRole(e.target.value)
+          }}/>
+          <div className='flex flex-wrap justify-center'>
+            {
+              employees.map((employee) => (
+                <Employee 
+                  key={uuidv4()}
+                  employees={employee}
+                />
+              ))
+            }
+          </div>
+        </>
+        : (
+          <p>You cannot see any employees</p>
+        )
+      }
+
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

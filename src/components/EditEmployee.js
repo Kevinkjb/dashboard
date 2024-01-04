@@ -70,10 +70,6 @@ function EditEmployee({employees, updateEmployee, id}) {
                     />
                 </div>
             </div>
-
-            <div className="md:flex md:items-center">
-
-            </div>
         </form>
         </Modal.Body>
         <Modal.Footer>

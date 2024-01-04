@@ -1,7 +1,5 @@
-import EditEmployee from "./EditEmployee"
 
-
-const Employee = ({employees, setEmployees, updateEmployee, id}) =>{
+const Employee = ({employees, editEmployee}) =>{
     return(
         <>
         <div className="min-w-[350px] max-w-[350px] py-8 px-8  bg-white rounded-xl shadow-lg space-y-2 sm:py-4 sm:flex sm:items-center sm:space-y-0 sm:space-x-6 m-4">
@@ -21,16 +19,8 @@ const Employee = ({employees, setEmployees, updateEmployee, id}) =>{
                     }
                 </div>
                 </div>
-                    <EditEmployee
-                    // THIS ID WAS GRAB MAIN FILE APP TO BE ABLE TO RENDER IT INTO EDIT COMPONENTS
-                    id={id}
-                    // THIS EMPLOYEE GRABS THE MAIN FILE APP TO BE ABLE TO RENDER AND MAP IT INTO EDIT COMPONENTS
-                    employees={employees}
-                    //THIS GRABS THE FUNCTION FROM APP JS TO GIVES AN ACCESS TO EDIT EMPLOYEE COMPONENTS TO RENDER AND ACCESS THE FUNCTION
-                    updateEmployee={updateEmployee}
-                    />
-
-               
+                {/* THIS IS A PROPS THAT IS SEND THROUGH THE APP JS TO GET THE EDIT EMPLOYEE COMPONENTS */}
+                {editEmployee}
             </div>
         </div>
         </>
